@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book a call · Adrian Wedd</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ET0FJJS7C7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ET0FJJS7C7');
+  </script>
   <style>
     :root {
       --bg: #070a0f;
@@ -319,6 +326,7 @@
       const detail = document.getElementById('confirm-detail');
       const confirmTime = document.getElementById('confirm-time');
       detail.textContent = 'A confirmation email has been sent to ' + email + '.';
+      gtag('event', 'booking_confirmed', { slot: selectedSlotIso });
       confirmTime.textContent = timeStr;
       showStep('step-confirm');
     } catch {
