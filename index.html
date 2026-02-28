@@ -348,7 +348,7 @@
         crypto.subtle.digest('SHA-256', new TextEncoder().encode(email.toLowerCase()))
           .then(buf => {
             const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
-            lintrk('track', { conversion_id: 'LINKEDIN_CONVERSION_ID', li_em: hash });
+            lintrk('track', { conversion_id: 24583532, li_em: hash });
           });
       }
       confirmTime.textContent = timeStr;
