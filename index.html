@@ -149,7 +149,7 @@
   // All user-supplied values are sent to the API via JSON fetch.
   // They are never written into DOM markup — only via textContent.
   const API = 'https://api.book.adrianwedd.com';
-  const OFFSET = '+11:00';
+  const OFFSET = '+11:00'; // AEDT (Tasmania). Update to +10:00 after daylight saving ends in April.
   const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const SLOT_MS = 30 * 60 * 1000;
 
@@ -318,7 +318,7 @@
 
       const detail = document.getElementById('confirm-detail');
       const confirmTime = document.getElementById('confirm-time');
-      detail.textContent = 'A calendar invite has been sent to ' + email + '.';
+      detail.textContent = 'A confirmation email has been sent to ' + email + '.';
       confirmTime.textContent = timeStr;
       showStep('step-confirm');
     } catch {
