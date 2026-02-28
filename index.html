@@ -343,6 +343,14 @@
       const confirmTime = document.getElementById('confirm-time');
       detail.textContent = 'A confirmation email has been sent to ' + email + '.';
       gtag('event', 'booking_confirmed', { slot: selectedSlotIso });
+      // LinkedIn enhanced matching + conversion
+      if (typeof lintrk === 'function') {
+        crypto.subtle.digest('SHA-256', new TextEncoder().encode(email.toLowerCase()))
+          .then(buf => {
+            const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+            lintrk('track', { conversion_id: 'LINKEDIN_CONVERSION_ID', li_em: hash });
+          });
+      }
       confirmTime.textContent = timeStr;
       showStep('step-confirm');
     } catch {
